@@ -1,17 +1,15 @@
+# Visual Studio
+.vs/
+
+# ASP.NET Core
+bin/
+obj/
+
 # Node
 node_modules/
 dist/
 .env
 
-# ASP.NET
-bin/
-obj/
-appsettings.Development.json
-
 # OS
 .DS_Store
 Thumbs.db
-
-# IDE
-.vscode/
-.idea/
