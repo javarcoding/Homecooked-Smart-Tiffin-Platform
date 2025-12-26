@@ -57,6 +57,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
+// CORS (basic, refined later)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendPolicy", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("JwtSettings")
 );
@@ -117,6 +129,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseCors("FrontendPolicy");
+
+
 app.UseAuthorization();
 
 app.MapControllers();
