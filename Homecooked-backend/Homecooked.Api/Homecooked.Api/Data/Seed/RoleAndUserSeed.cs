@@ -1,5 +1,6 @@
 ﻿using Homecooked.Api.Models;
 using Homecooked.Api.Models.Enums;
+using Homecooked.Api.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Homecooked.Api.Data.Seed
@@ -15,7 +16,7 @@ namespace Homecooked.Api.Data.Seed
                     Id = Guid.NewGuid(),
                     FullName = "System Admin",
                     Email = "admin123@gmail.com",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
+                    PasswordHash = PasswordHasher.HashPassword("Admin@123"),
                     Role = UserRole.ADMIN,
                     IsActive = true,
                     IsVerified = true,
