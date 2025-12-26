@@ -3,10 +3,14 @@ import './App.css';
 import PublicRoutes from './routes/PublicRoutes'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <PublicRoutes/>
+    <>
+      console.log("API URL:", import.meta.env.VITE_API_BASE_URL);
+
+      <PublicRoutes/>
+    </>
+    
   )
 }
 
